@@ -4,10 +4,10 @@
 Choose a script and type/paste to your terminal
 
 ```bash
-curl -sSL https://github.com/thiennq/sh/blob/master/<script-name> | sh
+curl -sSL https://raw.githubusercontent.com/thiennq/sh/master/<script-name> | sh
 ```
 # or:
 ```bash
-wget -qO- https://github.com/thiennq/sh/blob/master/<script-name> | sh
+wget -qO- https://raw.githubusercontent.com/thiennq/sh/master/<script-name> | sh
 ```
 
