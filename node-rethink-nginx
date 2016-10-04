@@ -1,0 +1,19 @@
+apt-get -o Acquire::ForceIPv4=true update
+apt-get -o Acquire::ForceIPv4=true upgrade
+echo 'Acquire::ForceIPv4 "true";' | tee /etc/apt/apt.conf.d/99force-ipv4
+apt-get install curl
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash
+sudo apt-get install -y nodejs
+sudo apt-get install -y build-essential
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+source /etc/lsb-release && echo "deb http://download.rethinkdb.com/apt $DISTRIB_CODENAME main" | sudo tee /etc/apt/sources.list.d/rethinkdb.list
+wget -qO- https://download.rethinkdb.com/apt/pubkey.gpg | sudo apt-key add -
+sudo apt-get -y update
+sudo apt-get install -y rethinkdb
+sudo pip install rethinkdb
+sudo cp /etc/rethinkdb/default.conf.sample /etc/rethinkdb/instances.d/instance1.conf
+# sudo nano /etc/rethinkdb/instances.d/instance1.conf
+sudo /etc/init.d/rethinkdb restart
+apt-get install -y git
+apt-get install -y nginx
